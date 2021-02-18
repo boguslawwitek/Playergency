@@ -1,0 +1,7 @@
+{
+    "header-title": "Playergency",
+    "header-desc": "Tired of playing alone? Join our community.",
+    "change-lang": "Change language",
+    "error-with-status": "A {{statusCode}} error occurred on server.",
+    "error-without-status": "An error occurred on the server."
+}

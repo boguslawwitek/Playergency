@@ -1,13 +1,19 @@
+import PropTypes from 'prop-types';
 import styles from '../styles/Header.module.scss';
 
-export default function Header() {
-    return (
-        <header>
-            <div className={styles.wave}>
-                <h1>Playergency</h1>
-                <h2>Masz dość gry w samotności? Dołącz do naszej społeczności.</h2>
-                <img className={styles.wave_img} src="/red_wave.svg" alt="" />
-            </div>
-        </header>
-    )
-  }
+const Header = ({ title, desc }) => (
+    <header>
+        <div className={styles.wave}>
+            <h1>{title}</h1>
+            <h2>{desc}</h2>
+            <img className={styles.wave_img} src="/red_wave.svg" alt="" />
+        </div>
+    </header>
+)
+
+Header.propTypes = {
+    title: PropTypes.string.isRequired,
+    desc: PropTypes.string.isRequired,
+}
+
+export default Header;

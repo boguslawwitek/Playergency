@@ -15,23 +15,7 @@ html {
 body {
   background-color: #222;
   color: white;
-}
-
-button {
-  display: block;
-  background-color: #7f0000;
-  border-style: none;
-  border-radius: 0.5rem;
-  padding: 1rem 1.5rem;
-  font-size: 1rem;
-  font-weight: 600;
-  font-family: 'Open Sans', sans-serif;
-  color: white;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: #b71c1c;
+  min-height: 200vh;
 }
 
 button:focus {

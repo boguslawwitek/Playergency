@@ -1,0 +1,20 @@
+.section1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    top: -20px;
+    left: 0;
+}
+
+.section1 p {
+    font-size: 1.4rem;
+    text-align: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 10px;
+}
+
+.section1 button {
+    margin-top: 50px;
+}

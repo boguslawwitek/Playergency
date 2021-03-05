@@ -1,13 +1,19 @@
 import PropTypes from 'prop-types';
-import { withTranslation } from '../i18n';
+import { useTranslation } from 'next-i18next';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
-const Error = ({ statusCode, t }) => (
-  <p>
-    {statusCode
-      ? t('error-with-status', { statusCode })
-      : t('error-without-status')}
-  </p>
-);
+const Error = ({ statusCode }) => {
+  
+  const { t } = useTranslation('common');
+
+  return (
+    <p>
+      {statusCode
+        ? t('error-with-status', { statusCode })
+        : t('error-without-status')}
+    </p>
+  )
+};
 
 Error.getInitialProps = async ({ res, err }) => {
   let statusCode = null
@@ -17,7 +23,6 @@ Error.getInitialProps = async ({ res, err }) => {
     ({ statusCode } = err)
   }
   return {
-    namespacesRequired: ['common'],
     statusCode,
   }
 }
@@ -28,7 +33,12 @@ Error.defaultProps = {
 
 Error.propTypes = {
   statusCode: PropTypes.number,
-  t: PropTypes.func.isRequired,
 }
 
-export default withTranslation('common')(Error);
+export const getStaticProps = async ({ locale }) => ({
+  props: {
+    ...await serverSideTranslations(locale, ['common']),
+  },
+})
+
+export default Error;

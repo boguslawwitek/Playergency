@@ -1,0 +1,28 @@
+.language {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 20px;
+    font-size: 1.05rem;
+}
+
+.language-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #151618;
+    border: 1px solid black;
+    padding: 13px 20px;
+    border-radius: 8px;
+    margin-top: 5px;
+}
+
+.lang-img {
+    display: block;
+    width: 32px;
+    border-radius: 4px;
+    margin-right: 20px;
+    box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2);
+}

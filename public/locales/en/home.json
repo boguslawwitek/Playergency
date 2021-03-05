@@ -1,5 +1,5 @@
 {
     "section1-p": "We are a community of players, a place where you can find companions to play with, talk to and find help if you need it. We are constantly developing and improving our website and Discord server. We go with the trends and add new features to make it easier for people to play and make new friends.",
     "section1-btn": "Join to our Discord!",
-    "section1-btn-with-count": "Join to {{memberCount}} users on our Discord!"
+    "section1-btn-with-count": "Join to {{membersCount}} users on our Discord!"
 }

@@ -1,0 +1,17 @@
+{
+    "lang": "en",
+    "lang-long": "English",
+    "lang-select": "Choose language",
+    "nav-home": "Home",
+    "nav-dashboard": "Player Dashboard",
+    "nav-store": "Store",
+    "header-title": "Playergency",
+    "header-desc": "Tired of playing alone? Join our community.",
+    "footer-steam-group": "Steam Group",
+    "footer-fb-group": "Facebook Group",
+    "footer-copyright": "All rights reserved.",
+    "footer-author": "Created with ❤️ by",
+    "change-lang": "Change language",
+    "error-with-status": "A {{statusCode}} error occurred on server.",
+    "error-without-status": "An error occurred on the server."
+}

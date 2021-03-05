@@ -3,8 +3,9 @@
     flex-direction: column;
     align-items: center;
     position: relative;
-    top: -20px;
+    top: -110px;
     left: 0;
+    padding-bottom: 20px;
 }
 
 .section1 p {
@@ -20,15 +21,41 @@
     background-color: #7f0000;
     border-style: none;
     border-radius: 0.5rem;
-    padding: 1rem 1.5rem;
+    padding: 1rem 0.5rem;
     font-size: 1rem;
     font-weight: 600;
     font-family: 'Open Sans', sans-serif;
     color: white;
     cursor: pointer;
     margin-top: 50px;
+    text-decoration: none;
 }
   
 .btn:hover {
     background-color: #b71c1c;
+}
+
+@media (max-width: 1650px) {
+    .section1 {
+        top: -80px;
+    }
+}
+
+@media (max-width: 1550px) {
+    .section1 {
+        top: -40px;
+    }
+}
+
+@media (max-width: 1300px) {
+    .section1 {
+        top: -20px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .section1 {
+        top: 20px;
+        padding-bottom: 75px;
+    }
 }

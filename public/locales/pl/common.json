@@ -1,0 +1,16 @@
+{
+    "lang": "pl",
+    "lang-long": "Polski",
+    "lang-select": "Wybierz język",
+    "nav-home": "Strona Główna",
+    "nav-dashboard": "Panel Gracza",
+    "nav-store": "Sklep",
+    "header-title": "Playergency",
+    "header-desc": "Masz dość gry w samotności? Dołącz do naszej społeczności.",
+    "footer-steam-group": "Grupa Steam",
+    "footer-fb-group": "Grupa Facebook",
+    "footer-copyright": "Wszelkie prawa zastrzeżone.",
+    "footer-author": "Stworzone z ❤️ przez",
+    "error-with-status": "Wystąpił problem z serwerem: {{statusCode}}",
+    "error-without-status": "Wystąpił problem z serwerem."
+}

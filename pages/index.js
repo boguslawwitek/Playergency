@@ -1,36 +1,58 @@
-import PropTypes from 'prop-types';
+import React, { useState, useEffect } from 'react';
 import Head from 'next/head';
-import { i18n, Link, withTranslation } from '../i18n';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+
+import { config, dom } from "@fortawesome/fontawesome-svg-core";
+config.autoAddCss = false;
+
+import { useTranslation } from 'next-i18next';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+
 import styles from '../styles/Home.module.scss';
 import Header from '../components/Header';
+import Nav from '../components/Nav';
+import Footer from '../components/Footer';
 
-const Home = ({ t }) => {
-  const memberCount = 1100;
+const Home = () => {
+  const router = useRouter();
+  const { t } = useTranslation('common');
+  const [membersCount, setMembersCount] = useState(0);
+
+  useEffect(() => {
+
+    fetch("https://discord.com/api/guilds/242347815563427840/widget.json")
+      .then(res => res.json())
+      .then(json => setMembersCount(prevState => prevState = json.presence_count));
+
+  }, [])
 
   return (
     <>
       <Head>
         <title>Playergency</title>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/images/favicon.ico" />
+        <style>{dom.css()}</style>
       </Head>
-      <Header title={t('header-title')} desc={t('header-desc')} />
+      <Nav />
+      <Header />
       <main>
         <section className={styles.section1}>
-          <button type='button' onClick={() => i18n.changeLanguage(i18n.language === 'pl' ? 'en' : 'pl')}>{t('change-lang')}</button>
           <p>{t('home:section1-p')}</p>
-          <button type="button" className={styles.btn}>{memberCount ? t('home:section1-btn-with-count', {memberCount}) : t('home:section1-btn')}</button>
+          <a href="#" className={styles.btn}>
+            {membersCount ? t('home:section1-btn-with-count', {membersCount}) : t('home:section1-btn')}
+          </a>
         </section>
       </main>
+      <Footer />
     </>
   )
 }
 
-Home.getInitialProps = async () => ({
-  namespacesRequired: ['common', 'home'],
-});
+export const getStaticProps = async ({ locale }) => ({
+  props: {
+    ...await serverSideTranslations(locale, ['common', 'home']),
+  },
+})
 
-Home.propTypes = {
-  t: PropTypes.func.isRequired,
-}
-
-export default withTranslation(['common', 'home'])(Home);
+export default Home;

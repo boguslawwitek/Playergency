@@ -1,7 +1,0 @@
-{
-    "header-title": "Playergency",
-    "header-desc": "Masz dość gry w samotności? Dołącz do naszej społeczności.",
-    "change-lang": "Zmień język",
-    "error-with-status": "Wystąpił problem z serwerem: {{statusCode}}",
-    "error-without-status": "Wystąpił problem z serwerem."
-}

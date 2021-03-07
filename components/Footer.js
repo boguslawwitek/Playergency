@@ -1,11 +1,19 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import useSwr from 'swr';
 import styles from '../styles/Footer.module.scss';
 import { useTranslation } from 'next-i18next';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import LanguageSwitch from './LanguageSwitch';
+import Error from 'next/error';
 
-const Footer = () => {
+const fetcher = (url) => fetch(url).then((res) => res.json());
+
+const Footer = ({path}) => {
     const { t } = useTranslation('common');
+    const { data, error } = useSwr('/api/year', fetcher);
+
+    if (error) return <Error />;
 
     return (
         <footer className={styles.footer}>
@@ -15,7 +23,7 @@ const Footer = () => {
                         <li>
                             <div className={styles['link-container']}>
                                 <FontAwesomeIcon icon={['fab', 'discord']} className={styles.icons}/>
-                                <a href="https://discord.com/invite/RgnA9rS" target="_blank">Discord</a>
+                                <a href="https://discord.gg/85cV6Et" target="_blank">Discord</a>
                             </div>
                         </li>
                         <li>
@@ -68,18 +76,22 @@ const Footer = () => {
                         </li>
                     </ul>
                     <div>
-                        <LanguageSwitch />
+                        <LanguageSwitch path={path} />
                     </div>
                 </div> 
             </div>
             <div className={styles.copyright}>
                 <div className={styles.container}>
-                    <p>&copy; 2016-{new Date().getFullYear()} Playergency. {t('footer-copyright')}</p>
+                    <p>&copy; 2016-{!data ? '2021' : data.year} Playergency. {t('footer-copyright')}</p>
                     <p>{t('footer-author')} <a href="https://bwitek.dev" target="_blank" className={styles.author}>BWitek.dev</a></p>
                 </div> 
             </div>
         </footer>
     )
 }
+
+Footer.propTypes = {
+    path: PropTypes.string
+};
 
 export default Footer;

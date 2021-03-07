@@ -1,0 +1,82 @@
+.main {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.box {
+    width: 550px;
+    max-width: 90%;
+    min-width: 300px;
+    height: 600px;
+    background-color: rgba(0, 0, 0, 0.2);
+    margin: 130px auto 210px auto;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.logo {
+    width: 250px;
+}
+
+.h1 {
+    font-size: 3rem;
+    padding: 0 30px;
+    text-align: center;
+}
+
+.p {
+    font-size: 1.5rem;
+    padding: 0 50px;
+    text-align: center;
+}
+
+.discord-icon {
+    margin-right: 10px;
+    font-size: 2.5rem;
+}
+
+.link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-decoration: none;
+    border-style: none;
+    background-color: #7289da;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-weight: 600;
+    font-size: 2.1rem;
+
+    &:hover {
+        background-color: #6b7fc9;
+    }
+}
+
+@media (max-width: 800px) {
+    .box {
+        margin: 100px auto;
+    }
+}
+
+@media (max-width: 400px) {
+    .h1 {
+        font-size: 2.5rem;
+        padding: 0 30px;
+    }
+
+    .p {
+        font-size: 1.3rem;
+    }
+
+    .link {
+        font-size: 1.6rem;
+    }
+
+    .discord-icon {
+        font-size: 2.1rem;
+    }
+}

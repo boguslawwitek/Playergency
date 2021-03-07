@@ -1,10 +1,11 @@
 {
     "lang": "pl",
     "lang-long": "Polski",
-    "lang-select": "Wybierz język",
+    "lang-select": "Przełącz język",
     "nav-home": "Strona Główna",
     "nav-dashboard": "Panel Gracza",
     "nav-store": "Sklep",
+    "discord-p": "Dołącz do naszej społeczności i wspólnie rozwijaj ją z nami.",
     "header-title": "Playergency",
     "header-desc": "Masz dość gry w samotności? Dołącz do naszej społeczności.",
     "footer-steam-group": "Grupa Steam",

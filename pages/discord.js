@@ -9,6 +9,7 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import styles from '../styles/Discord.module.scss';
 import Nav from '../components/Nav';
 import Footer from '../components/Footer';
+import CookiesBanner from '../components/CookiesBanner';
 
 const Discord = () => {
   const { t } = useTranslation('common');
@@ -31,7 +32,7 @@ const Discord = () => {
   return (
     <>
       <Head>
-        <title>Playergency</title>
+        <title>Playergency - Discord</title>
         <link rel="icon" href="/images/favicon.ico" />
         <style>{dom.css()}</style>
       </Head>
@@ -41,17 +42,18 @@ const Discord = () => {
             <img className={styles.logo} src="/images/logo.png" alt="" />
             <h1 className={styles.h1}>Playergency</h1>
             <p className={styles.p}>{t('discord-p')}</p>
-            <a href="https://discord.gg/85cV6Et" className={styles.link}><FontAwesomeIcon className={styles['discord-icon']} icon={['fab', 'discord']} />Dołącz</a>
+            <a href="https://discord.gg/85cV6Et" className={styles.link}><FontAwesomeIcon className={styles['discord-icon']} icon={['fab', 'discord']} />{t('discord-join')}</a>
         </div>
       </main>
       <Footer path="/discord" />
+      <CookiesBanner />
     </>
   )
 }
 
 export const getStaticProps = async ({ locale }) => ({
   props: {
-    ...await serverSideTranslations(locale, ['common', 'home']),
+    ...await serverSideTranslations(locale, ['common', 'home', 'policy']),
   },
 })
 

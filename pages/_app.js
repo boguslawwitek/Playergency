@@ -7,7 +7,7 @@ import { faHandsHelping } from '@fortawesome/free-solid-svg-icons';
 
 library.add(fab, faHandsHelping);
 
-const MyApp = ({ Component, pageProps }) => <Component {...pageProps} />
+const MyApp = ({ Component, pageProps }) => <Component {...pageProps} />;
 
 MyApp.getInitialProps = async (appContext) => ({ ...await App.getInitialProps(appContext) })
 

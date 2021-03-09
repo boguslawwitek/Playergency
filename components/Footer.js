@@ -5,15 +5,12 @@ import styles from '../styles/Footer.module.scss';
 import { useTranslation } from 'next-i18next';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import LanguageSwitch from './LanguageSwitch';
-import Error from 'next/error';
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
 const Footer = ({path}) => {
     const { t } = useTranslation('common');
     const { data, error } = useSwr('/api/year', fetcher);
-
-    if (error) return <Error />;
 
     return (
         <footer className={styles.footer}>
@@ -82,7 +79,7 @@ const Footer = ({path}) => {
             </div>
             <div className={styles.copyright}>
                 <div className={styles.container}>
-                    <p>&copy; 2016-{!data ? '2021' : data.year} Playergency. {t('footer-copyright')}</p>
+                    <p>&copy; 2016-{error || !data ? '2021' : data.year} Playergency. {t('footer-copyright')}</p>
                     <p>{t('footer-author')} <a href="https://bwitek.dev" target="_blank" className={styles.author}>BWitek.dev</a></p>
                 </div> 
             </div>

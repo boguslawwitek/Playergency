@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Head from 'next/head';
 import classNames from 'classnames';
+import useSwr from 'swr';
 
 import { config, dom } from "@fortawesome/fontawesome-svg-core";
 config.autoAddCss = false;
@@ -12,11 +13,14 @@ import styles from '../styles/Home.module.scss';
 import Header from '../components/Header';
 import Nav from '../components/Nav';
 import Footer from '../components/Footer';
+import CookiesBanner  from '../components/CookiesBanner';
+
+const fetcher = (url) => fetch(url).then((res) => res.json());
 
 const Home = () => {
   const { t } = useTranslation('common');
-  const [membersCount, setMembersCount] = useState(0);
   const [innerWidth, setInnerWidth] = useState(0);
+  const { data, error } = useSwr('/api/member-count', fetcher);
 
   useEffect(() => {
     setInnerWidth(prevState => prevState = window.innerWidth);
@@ -24,10 +28,6 @@ const Home = () => {
     function handleResize() {
       setInnerWidth(prevState => prevState = window.innerWidth);
     }
-
-    fetch("https://discord.com/api/guilds/242347815563427840/widget.json")
-      .then(res => res.json())
-      .then(json => setMembersCount(prevState => prevState = json.presence_count));
   
     window.addEventListener('resize', handleResize);
     return () => {
@@ -48,8 +48,8 @@ const Home = () => {
       <main>
         <section className={styles.section1}>
           <p>{t('home:section1-p')}</p>
-          <a href="#" className={styles.btn}>
-            {membersCount ? t('home:section1-btn-with-count', {membersCount}) : t('home:section1-btn')}
+          <a href="https://discord.gg/85cV6Et" target="_blank" className={styles.btn}>
+            {!error && data && data.hasOwnProperty('memberCount') && data.memberCount > 0 ? t('home:section1-btn-with-count', {memberCount: data.memberCount}) : t('home:section1-btn')}
           </a>
         </section>
         <section className={styles.section2}>
@@ -116,13 +116,14 @@ const Home = () => {
         </section>
       </main>
       <Footer />
+      <CookiesBanner />
     </>
   )
 }
 
 export const getStaticProps = async ({ locale }) => ({
   props: {
-    ...await serverSideTranslations(locale, ['common', 'home', 'admins']),
+    ...await serverSideTranslations(locale, ['common', 'home', 'admins', 'policy']),
   },
 })
 

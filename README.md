@@ -12,9 +12,16 @@ A website for the gaming community.
 # Installation
 ```
 git clone https://github.com/boguslawwitek/Playergency.git
+cd Playergency
 npm install
 npm run dev
 ```
+#### Production
+```
+npm run build
+npm start
+```
+
 **Before the first run, create a [config.json](https://github.com/boguslawwitek/Playergency/blob/main/config.exmaple.json).**
 
 # License

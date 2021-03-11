@@ -6,7 +6,7 @@ import classNames from 'classnames';
 
 const CookiesBanner = () => {
     const { t } = useTranslation('policy');
-    const [isVisible, setIsVisible] = useState(true);
+    const [isVisible, setIsVisible] = useState(false);
 
     function cookiesParse() {
         return Object.fromEntries(document.cookie.split(/; */).map(c => {

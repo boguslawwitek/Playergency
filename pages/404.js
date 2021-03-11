@@ -8,13 +8,11 @@ import styles from '../styles/Errors.module.scss';
 import Nav from '../components/Nav';
 import Footer from '../components/Footer';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
 import { umamiAnalyticsID, umamiAnalyticsSrc } from '../config.json';
 
 const Custom404 = () => {
     const { t } = useTranslation('common');
     const [innerWidth, setInnerWidth] = useState(0);
-    const router = useRouter();
 
     useEffect(() => {
       setInnerWidth(prevState => prevState = window.innerWidth);
@@ -50,7 +48,7 @@ const Custom404 = () => {
                     <a className={styles.btn}>{t('error-go-back')}</a>
                 </Link>
             </div>
-            <Footer path={router.pathname} />
+            <Footer />
         </>
     )
 }

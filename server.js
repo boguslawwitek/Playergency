@@ -1,11 +1,11 @@
 const { createServer } = require('http');
 const { parse } = require('url');
 const next = require('next');
-const { discordBotToken } = require('./config.json');
+const { port, discordBotToken } = require('./config.json');
 const Discord = require('discord.js');
 const client = new Discord.Client();
 
-const port = 6999;
+const PORT = port ? port : '3000';
 const dev = process.env.NODE_ENV !== 'production';
 const app = next({ dev });
 const handle = app.getRequestHandler();
@@ -26,8 +26,8 @@ app.prepare().then(() => {
 
     handle(req, res, parsedUrl);
 
-  }).listen(port, (err) => {
+  }).listen(PORT, (err) => {
     if (err) throw err
-        console.log(`> Server listen on port: ${port}\n> http://localhost:${port}`);
+        console.log(`> Server listen on port: ${PORT}\n> http://localhost:${PORT}`);
   })
 })

@@ -38,6 +38,20 @@ const Discord = () => {
         {umamiAnalyticsID && umamiAnalyticsSrc ? 
         <script async defer data-website-id={umamiAnalyticsID} src={umamiAnalyticsSrc}>
         </script> : null}
+
+        {/* <!-- Primary Meta Tags --> */}
+        <meta name="title" content="Playergency - Discord" />
+        <meta name="description" content={t('meta-desc-discord')} />
+        {/* <!-- Open Graph / Facebook --> */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://playergency.com/discord" />
+        <meta property="og:title" content="Playergency - Discord" />
+        <meta property="og:description" content={t('meta-desc-discord')} />
+        {/* <!-- Twitter --> */}
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="https://playergency.com/discord" />
+        <meta property="twitter:title" content="Playergency - Discord" />
+        <meta property="twitter:description" content={t('meta-desc-discord')} />
       </Head>
       <Nav innerWidth={innerWidth} />
       <main className={styles.main}>
@@ -48,7 +62,7 @@ const Discord = () => {
             <a href="https://discord.gg/85cV6Et" className={styles.link}><FontAwesomeIcon className={styles['discord-icon']} icon={['fab', 'discord']} />{t('discord-join')}</a>
         </div>
       </main>
-      <Footer path="/discord" />
+      <Footer />
       <CookiesBanner />
     </>
   )

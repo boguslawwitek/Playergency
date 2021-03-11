@@ -43,6 +43,22 @@ const Home = () => {
         {umamiAnalyticsID && umamiAnalyticsSrc ? 
         <script async defer data-website-id={umamiAnalyticsID} src={umamiAnalyticsSrc}>
         </script> : null}
+
+        {/* <!-- Primary Meta Tags --> */}
+        <meta name="title" content="Playergency" />
+        <meta name="description" content={t('meta-desc')} />
+        {/* <!-- Open Graph / Facebook --> */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://playergency.com" />
+        <meta property="og:title" content="Playergency" />
+        <meta property="og:description" content={t('meta-desc')} />
+        <meta property="og:image" content="/images/games/cyberpunk.jpg" />
+        {/* <!-- Twitter --> */}
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="https://playergency.com" />
+        <meta property="twitter:title" content="Playergency" />
+        <meta property="twitter:description" content={t('meta-desc')} />
+        <meta property="twitter:image" content="/images/games/cyberpunk.jpg" />
       </Head>
       <Nav innerWidth={innerWidth} />
       <Header />

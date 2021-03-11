@@ -142,7 +142,7 @@ const PrivacyPolicy = () => {
             <p>{t('policy:pp-end2')}</p>
         </div>
       </main>
-      <Footer path="/privacy-policy" />
+      <Footer />
       <CookiesBanner />
     </>
   )

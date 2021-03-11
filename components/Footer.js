@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import useSwr from 'swr';
 import styles from '../styles/Footer.module.scss';
 import { useTranslation } from 'next-i18next';
@@ -8,7 +7,7 @@ import LanguageSwitch from './LanguageSwitch';
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
-const Footer = ({path}) => {
+const Footer = () => {
     const { t } = useTranslation('common');
     const { data, error } = useSwr('/api/year', fetcher);
 
@@ -73,7 +72,7 @@ const Footer = ({path}) => {
                         </li>
                     </ul>
                     <div>
-                        <LanguageSwitch path={path} />
+                        <LanguageSwitch />
                     </div>
                 </div> 
             </div>
@@ -86,9 +85,5 @@ const Footer = ({path}) => {
         </footer>
     )
 }
-
-Footer.propTypes = {
-    path: PropTypes.string
-};
 
 export default Footer;

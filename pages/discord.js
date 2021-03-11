@@ -5,11 +5,11 @@ import { config, dom } from "@fortawesome/fontawesome-svg-core";
 config.autoAddCss = false;
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-
 import styles from '../styles/Discord.module.scss';
 import Nav from '../components/Nav';
 import Footer from '../components/Footer';
 import CookiesBanner from '../components/CookiesBanner';
+import { umamiAnalyticsID, umamiAnalyticsSrc } from '../config.json';
 
 const Discord = () => {
   const { t } = useTranslation('common');
@@ -35,6 +35,9 @@ const Discord = () => {
         <title>Playergency - Discord</title>
         <link rel="icon" href="/images/favicon.ico" />
         <style>{dom.css()}</style>
+        {umamiAnalyticsID && umamiAnalyticsSrc ? 
+        <script async defer data-website-id={umamiAnalyticsID} src={umamiAnalyticsSrc}>
+        </script> : null}
       </Head>
       <Nav innerWidth={innerWidth} />
       <main className={styles.main}>

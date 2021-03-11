@@ -1,4 +1,6 @@
 {
     "discordBotToken": "",
-    "discordGuildID": ""
+    "discordGuildID": "",
+    "umamiAnalyticsID": "",
+    "umamiAnalyticsSrc": ""
 }

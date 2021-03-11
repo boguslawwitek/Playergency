@@ -9,6 +9,7 @@ import Nav from '../components/Nav';
 import Footer from '../components/Footer';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import { umamiAnalyticsID, umamiAnalyticsSrc } from '../config.json';
 
 const Custom404 = () => {
     const { t } = useTranslation('common');
@@ -35,6 +36,9 @@ const Custom404 = () => {
                 <title>Playergency</title>
                 <link rel="icon" href="/images/favicon.ico" />
                 <style>{dom.css()}</style>
+                {umamiAnalyticsID && umamiAnalyticsSrc ? 
+                <script async defer data-website-id={umamiAnalyticsID} src={umamiAnalyticsSrc}>
+                </script> : null}
             </Head>
             <Nav innerWidth={innerWidth} />
             <div className={styles.container404}>

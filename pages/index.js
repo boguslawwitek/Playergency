@@ -11,6 +11,7 @@ import Header from '../components/Header';
 import Nav from '../components/Nav';
 import Footer from '../components/Footer';
 import CookiesBanner  from '../components/CookiesBanner';
+import { umamiAnalyticsID, umamiAnalyticsSrc } from '../config.json';
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
@@ -39,6 +40,9 @@ const Home = () => {
         <title>Playergency</title>
         <link rel="icon" href="/images/favicon.ico" />
         <style>{dom.css()}</style>
+        {umamiAnalyticsID && umamiAnalyticsSrc ? 
+        <script async defer data-website-id={umamiAnalyticsID} src={umamiAnalyticsSrc}>
+        </script> : null}
       </Head>
       <Nav innerWidth={innerWidth} />
       <Header />

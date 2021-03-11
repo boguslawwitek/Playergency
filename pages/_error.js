@@ -2,15 +2,22 @@ import PropTypes from 'prop-types';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import styles from '../styles/Errors.module.scss';
+import Head from 'next/head';
 
 const Error = ({ statusCode }) => {
   const { t } = useTranslation('common');
 
   return (
-    <div className={styles.container}>
-      {statusCode ? t('error-with-status', { statusCode }) : t('error-without-status')}
-      <a className={styles.mail} href="mailto:contact@bwitek.dev">contact@bwitek.dev</a>
-    </div>
+    <>
+      <Head>
+        <title>Playergency - Error</title>
+        <link rel="icon" href="/images/favicon.ico" />
+     </Head>
+      <div className={styles.container}>
+        {statusCode ? t('error-with-status', { statusCode }) : t('error-without-status')}
+        <a className={styles.mail} href="mailto:contact@bwitek.dev">contact@bwitek.dev</a>
+      </div>
+    </>
   )
 };
 

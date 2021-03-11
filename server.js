@@ -10,16 +10,19 @@ const dev = process.env.NODE_ENV !== 'production';
 const app = next({ dev });
 const handle = app.getRequestHandler();
 
-client.on('ready', () => {
+if(discordBotToken) {
+  client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}!`);
-});
+  });
 
-client.login(discordBotToken);
+  client.login(discordBotToken);
+}
 
 app.prepare().then(() => {
   createServer((req, res) => {
     const parsedUrl = parse(req.url, true);
-    req.discord = client;
+    if(discordBotToken) req.discord = client;
+    else req.discord = null;
 
     handle(req, res, parsedUrl);
 

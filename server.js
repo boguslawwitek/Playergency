@@ -1,7 +1,7 @@
 const { createServer } = require('http');
 const { parse } = require('url');
 const next = require('next');
-const { token } = require('./config.json');
+const { discordBotToken } = require('./config.json');
 const Discord = require('discord.js');
 const client = new Discord.Client();
 
@@ -14,7 +14,7 @@ client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}!`);
 });
 
-client.login(token);
+client.login(discordBotToken);
 
 app.prepare().then(() => {
   createServer((req, res) => {
@@ -25,6 +25,6 @@ app.prepare().then(() => {
 
   }).listen(port, (err) => {
     if (err) throw err
-        console.log(`> Server listen on port: ${port}`);
+        console.log(`> Server listen on port: ${port}\n> http://localhost:${port}`);
   })
 })

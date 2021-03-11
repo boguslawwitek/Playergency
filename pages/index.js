@@ -2,13 +2,10 @@ import React, { useState, useEffect } from 'react';
 import Head from 'next/head';
 import classNames from 'classnames';
 import useSwr from 'swr';
-
 import { config, dom } from "@fortawesome/fontawesome-svg-core";
 config.autoAddCss = false;
-
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-
 import styles from '../styles/Home.module.scss';
 import Header from '../components/Header';
 import Nav from '../components/Nav';
@@ -34,7 +31,7 @@ const Home = () => {
       window.removeEventListener('resize', handleResize);
     }
 
-  }, [])
+  }, []);
 
   return (
     <>

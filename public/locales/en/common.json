@@ -13,7 +13,8 @@
     "footer-fb-group": "Facebook Group",
     "footer-copyright": "All rights reserved.",
     "footer-author": "Created with ❤️ by",
-    "change-lang": "Change language",
+    "error-404": "We couldn't find this page.",
+    "error-go-back": "Go home",
     "error-with-status": "A {{statusCode}} error occurred on server.",
     "error-without-status": "An error occurred on the server."
 }

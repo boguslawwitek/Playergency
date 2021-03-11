@@ -1,17 +1,16 @@
 import PropTypes from 'prop-types';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import styles from '../styles/Errors.module.scss';
 
 const Error = ({ statusCode }) => {
-  
   const { t } = useTranslation('common');
 
   return (
-    <p>
-      {statusCode
-        ? t('error-with-status', { statusCode })
-        : t('error-without-status')}
-    </p>
+    <div className={styles.container}>
+      {statusCode ? t('error-with-status', { statusCode }) : t('error-without-status')}
+      <a className={styles.mail} href="mailto:contact@bwitek.dev">contact@bwitek.dev</a>
+    </div>
   )
 };
 

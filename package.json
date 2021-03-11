@@ -17,7 +17,7 @@
     "classnames": "^2.2.6",
     "discord.js": "^12.5.1",
     "next": "10.0.6",
-    "next-i18next": "^8.0.2",
+    "next-i18next": "^8.1.0",
     "react": "17.0.1",
     "react-dom": "17.0.1",
     "sass": "^1.32.8",

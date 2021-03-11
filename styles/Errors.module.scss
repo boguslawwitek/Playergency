@@ -1,0 +1,87 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #222;
+}
+
+.mail {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    font-weight: 1.2rem;
+    margin-top: 30px;
+}
+
+.container404 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 95vh;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.box404 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 40px;
+}
+
+.code404 {
+    font-weight: 600;
+    font-size: 6.5rem;
+    margin-right: 50px;
+}
+
+.text404 {
+    font-size: 4rem;
+    color: rgba(255, 255, 255, 0.3);
+}
+
+.btn {
+    display: block;
+    background-color: #d50000;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    margin-top: 30px;
+    padding: 12px 25px;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+@media (max-width: 750px) {
+    .container404 {
+        text-align: center;
+    }
+
+    .box404 {
+        flex-direction: column;
+    }
+
+    .code404 {
+        margin-right: 0;
+    }
+}
+
+@media (max-width: 450px) {
+    .code404 {
+        font-size: 4rem;
+        margin-right: 0;
+    }
+
+    .text404 {
+        font-size: 2rem;
+    }
+}

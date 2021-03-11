@@ -13,6 +13,8 @@
     "footer-fb-group": "Grupa Facebook",
     "footer-copyright": "Wszelkie prawa zastrzeżone.",
     "footer-author": "Stworzone z ❤️ przez",
+    "error-404": "Nie mogliśmy znaleźć tej strony.",
+    "error-go-back": "Powrót do strony głównej",
     "error-with-status": "Wystąpił problem z serwerem: {{statusCode}}",
     "error-without-status": "Wystąpił problem z serwerem."
 }

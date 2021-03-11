@@ -22,7 +22,7 @@ npm run build
 npm start
 ```
 
-**Before the first run, create a [config.json](https://github.com/boguslawwitek/Playergency/blob/main/config.exmaple.json).**
+**Before the first run, create a [config.json](https://github.com/boguslawwitek/Playergency/blob/main/config.example.json).**
 
 # License
 [GPL-3.0](https://github.com/boguslawwitek/Playergency/blob/main/LICENSE)

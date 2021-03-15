@@ -7,8 +7,14 @@ export default (req, res) => {
         if(discordGuildID) {
             client.guilds.fetch(discordGuildID)
             .then(guild => {
-                const memberCount = guild.memberCount;
-                res.status(200).json({ memberCount, err: null});
+                guild.members.fetch()
+                .then(members => {
+                    const memberCount = members.size;
+                    res.status(200).json({ memberCount, err: null});
+                })
+                .catch(err => {
+                    res.status(404).json({ memberCount: 0, err });
+                })
             })
             .catch(err => {
                 res.status(404).json({ memberCount: 0, err });

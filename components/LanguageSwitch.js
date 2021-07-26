@@ -8,15 +8,21 @@ const LanguageSwitch = () => {
     const { t } = useTranslation('common');
 
     return (
-        <Link href={router.pathname} locale={router.locale === 'pl' ? 'en' : 'pl'}>
-            <div className={styles.language}>
-                <div>{t('lang-select')}</div>
+
+        <div className={styles.language}>
+            <Link href={router.pathname} locale={router.locale = 'pl'}>
                 <div className={styles['language-box']}>
-                    <img className={styles['lang-img']} src={`/images/flags/${t('lang')}.png`} />
-                    <div>{t('lang-long')}</div>
+                    <img className={styles['lang-img']} src={`/images/flags/pl.png`} />
+                    <div className={styles.text}>PL</div>
                 </div>
-            </div>
-        </Link>
+            </Link>
+            <Link href={router.pathname} locale={router.locale = 'en'}>
+                <div className={styles['language-box']}>
+                    <img className={styles['lang-img']} src={`/images/flags/en.png`} />
+                    <div className={styles.text}>EN</div>
+                </div>
+             </Link>
+        </div>
     )
 }
 

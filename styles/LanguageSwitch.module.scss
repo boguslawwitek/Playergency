@@ -1,14 +1,17 @@
+.text {
+    font-size: 1.1rem;
+    text-transform: uppercase;
+}
+
 .language {
-    cursor: pointer;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     margin: 0 20px;
-    font-size: 1.05rem;
 }
 
 .language-box {
+    cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -17,12 +20,22 @@
     padding: 13px 20px;
     border-radius: 8px;
     margin-top: 5px;
+    transition: .2s;
+
+    &:nth-child(1) {
+        margin-right: 15px;
+    }
+
+    &:hover {
+        background-color: #17181a;
+    }
 }
 
 .lang-img {
     display: block;
     width: 32px;
+    height: 20px;
     border-radius: 4px;
-    margin-right: 20px;
+    margin-right: 10px;
     box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2);
 }

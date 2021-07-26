@@ -8,7 +8,10 @@ import styles from '../styles/Errors.module.scss';
 import Nav from '../components/Nav';
 import Footer from '../components/Footer';
 import Link from 'next/link';
-import { umamiAnalyticsID, umamiAnalyticsSrc } from '../config.json';
+import data from '../config.json';
+
+const umamiAnalyticsID = data.umamiAnalyticsID;
+const umamiAnalyticsSrc = data.umamiAnalyticsSrc;
 
 const Custom404 = () => {
     const { t } = useTranslation('common');

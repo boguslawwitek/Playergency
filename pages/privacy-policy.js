@@ -9,7 +9,10 @@ import styles from '../styles/Policy.module.scss';
 import Nav from '../components/Nav';
 import Footer from '../components/Footer';
 import CookiesBanner from '../components/CookiesBanner';
-import { umamiAnalyticsID, umamiAnalyticsSrc } from '../config.json';
+import data from '../config.json';
+
+const umamiAnalyticsID = data.umamiAnalyticsID;
+const umamiAnalyticsSrc = data.umamiAnalyticsSrc;
 
 const PrivacyPolicy = () => {
   const { t } = useTranslation('common');

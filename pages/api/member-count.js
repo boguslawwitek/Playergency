@@ -1,4 +1,5 @@
-import { discordGuildID } from '../../config.json';
+import data from '../../config.json';
+const discordGuildID = data.discordGuildID;
 
 export default (req, res) => {
     const client = req.discord;

@@ -107,10 +107,12 @@ $mobile-link-bg: rgba(183, 28, 28, 0.7);
         width: auto;
         background-color: $navigation-bg;
         margin: 0 5px 0 10px;
+        border-bottom: none;
     }
 
     .a {
-        margin: 5px 0 0 0;
+        margin: 0;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
         width: 100%;
         padding: 12px 0;
         background-color: $mobile-link-bg;

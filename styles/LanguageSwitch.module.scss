@@ -6,8 +6,9 @@
 .language {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     margin: 0 20px;
+    height: 155px;
 }
 
 .language-box {
@@ -15,19 +16,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #151618;
+    background-color: #2B2933;
     border: 1px solid black;
     padding: 13px 20px;
     border-radius: 8px;
-    margin-top: 5px;
     transition: .2s;
 
     &:nth-child(1) {
         margin-right: 15px;
-    }
-
-    &:hover {
-        background-color: #17181a;
     }
 }
 
@@ -38,4 +34,13 @@
     border-radius: 4px;
     margin-right: 10px;
     box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 800px) {
+
+    .language {
+        height: auto;
+        margin: 5px 20px 30px 20px;
+    }
+
 }

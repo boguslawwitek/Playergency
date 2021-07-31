@@ -2,6 +2,7 @@
     "port": "3000",
     "discordBotToken": "",
     "discordGuildID": "",
+    "embedColor": "#d50000",
     "umamiAnalyticsID": "",
     "umamiAnalyticsSrc": ""
 }

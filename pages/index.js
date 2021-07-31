@@ -21,7 +21,7 @@ const fetcher = (url) => fetch(url).then((res) => res.json());
 const Home = () => {
   const { t } = useTranslation('common');
   const [innerWidth, setInnerWidth] = useState(0);
-  const { data, error } = useSwr('/api/member-count', fetcher);
+  const { data, error } = useSwr('/api/discord/members', fetcher);
 
   useEffect(() => {
     setInnerWidth(prevState => prevState = window.innerWidth);

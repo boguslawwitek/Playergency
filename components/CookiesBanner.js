@@ -25,6 +25,8 @@ const CookiesBanner = () => {
 
         if(cookies.hasOwnProperty('cookiesConfirm') && cookies['cookiesConfirm'] === "true") {
             setIsVisible(prevState => prevState = false);
+        } else if(cookies.hasOwnProperty('cookiesConfirm') && cookies['cookiesConfirm'] === "false") {
+            setIsVisible(prevState => prevState = true);
         }
     }, [])
 

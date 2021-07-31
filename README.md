@@ -1,5 +1,5 @@
 # Overview
-A website for the gaming community.  
+A website and discord bot for the gaming community.  
 Demo: [Playergency.com](https://www.playergency.com).
 
 # Technologies

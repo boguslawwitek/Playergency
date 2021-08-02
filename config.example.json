@@ -3,6 +3,7 @@
     "discordBotToken": "",
     "discordGuildID": "",
     "embedColor": "#d50000",
+    "adminCommandsPrefix": "!",
     "umamiAnalyticsID": "",
     "umamiAnalyticsSrc": ""
 }

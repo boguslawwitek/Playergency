@@ -7,6 +7,7 @@
 
 # testing
 /coverage
+/discordbot/commands/admin/test.js
 
 # next.js
 /.next/

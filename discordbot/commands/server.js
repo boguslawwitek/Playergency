@@ -1,10 +1,9 @@
 const { MessageEmbed } = require('discord.js');
-const { embedColor } = require('../../config.json');
 
 module.exports = {
 	name: 'serwer',
 	description: 'Wysyłam informacje o serwerze.',
-	async execute(interaction, client) {
+	async execute(interaction, client, guildDB) {
         const guildCreatedAtDate = interaction.guild.createdAt.toLocaleDateString("pl-PL", { year: "numeric", month: "2-digit", day: "2-digit" });
 		const verificationLevels = {'NONE': 0, 'LOW': 1, 'MEDIUM': 2, 'HIGH': 3, 'VERY_HIGH': 4};
 
@@ -23,7 +22,7 @@ module.exports = {
 		const rolesCount = roles.size;
     
         const serverEmbed = new MessageEmbed()
-        .setColor(embedColor)
+        .setColor(guildDB.config.defaultEmbedColor)
         .setAuthor(interaction.guild.name, client.user.displayAvatarURL({dynamic: true}), 'https://www.playergency.com')
         .setThumbnail(client.user.displayAvatarURL({dynamic: true}))
         .addFields(

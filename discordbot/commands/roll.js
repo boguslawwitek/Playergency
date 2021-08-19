@@ -1,5 +1,4 @@
 const { MessageEmbed } = require('discord.js');
-const { embedColor } = require('../../config.json');
 const { getRandomInt } = require('../utils');
 
 module.exports = {
@@ -17,7 +16,7 @@ module.exports = {
 		description: 'Ile rzutów chciałbyś zrobić na raz? (1-10)',
 		required: false,
 	}],
-	async execute(interaction, client) {
+	async execute(interaction, client, guildDB) {
         let randomNumber;
         let firstArg = interaction.options.getInteger('jak_duża');
         let secondArg = interaction.options.getInteger('ile_rzutów');
@@ -31,7 +30,7 @@ module.exports = {
         }
 
 		const rollEmbed = new MessageEmbed()
-        .setColor(embedColor)
+        .setColor(guildDB.config.defaultEmbedColor)
         .setAuthor(interaction.guild.name, client.user.displayAvatarURL({dynamic: true}), 'https://www.playergency.com');
         
         if(secondArg === 1) {

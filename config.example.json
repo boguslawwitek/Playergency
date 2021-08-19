@@ -1,10 +1,9 @@
 {
     "port": "3000",
     "mongoURI": "",
+    "sessionSecret": "foo",
     "discordBotToken": "",
     "discordGuildID": "",
-    "embedColor": "#d50000",
-    "adminCommandsPrefix": "!",
     "umamiAnalyticsID": "",
     "umamiAnalyticsSrc": ""
 }

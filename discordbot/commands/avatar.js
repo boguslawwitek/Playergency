@@ -1,5 +1,4 @@
 const { MessageEmbed, MessageActionRow, MessageButton } = require('discord.js');
-const { embedColor } = require('../../config.json');
 
 module.exports = {
 	name: 'awatar',
@@ -16,7 +15,7 @@ module.exports = {
 		description: 'Czy awatar ma być animowany, jeśli to możliwe?',
 		required: false,
 	}],
-	async execute(interaction, client) {
+	async execute(interaction, client, guildDB) {
 		const user = interaction.options.getUser('użytkownik');
 		const boolean = interaction.options.getBoolean('animowany');
 		let avatarUrl;
@@ -29,7 +28,7 @@ module.exports = {
 		else avatarUrl = interaction.user.displayAvatarURL({dynamic: dynamic, size: 512});
 
 		const avatarEmbed = new MessageEmbed()
-        .setColor(embedColor)
+        .setColor(guildDB.config.defaultEmbedColor)
         .setAuthor(interaction.guild.name, client.user.displayAvatarURL({dynamic: true}), 'https://www.playergency.com')
 		.setImage(avatarUrl);
 

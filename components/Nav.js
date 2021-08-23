@@ -16,13 +16,7 @@ export const Nav = ({innerWidth}) => {
                 <Link href="/"><a className={styles.a}>{t('nav-home')}</a></Link>
             </li>
             <li className={styles.li}>
-                <a href="https://www.playergency.com/beta/" className={styles.a}>{t('nav-dashboard')}</a>
-            </li>
-            <li className={styles.li}>
-                <a href="https://www.playergency.com/beta/ranking" className={styles.a}>Ranking</a>
-            </li>
-            <li className={styles.li}>
-                <a href="https://www.playergency.com/beta/shop" className={styles.a}>{t('nav-store')}</a>
+                <Link href="/dashboard"><a className={styles.a}>{t('nav-dashboard')}</a></Link>
             </li>
             <li className={styles.li}>
                 <a href="https://discord.gg/85cV6Et" target="_blank" className={styles.a}>Discord</a>

@@ -7,6 +7,7 @@ const guildSchema = new Schema({
         admins: [{userID: String, permissions: Array}],
         adminCommandsPrefix: { type: String, default: '!' },
         defaultEmbedColor: { type: String, default: '#d50000' },
+        loginBgUrl: { type: String, default: '/images/games/csgo.jpg' }
     },
     date: { type: Date, default: Date.now }
 }, { collection: 'guilds' });

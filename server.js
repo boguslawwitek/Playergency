@@ -12,6 +12,7 @@ const app = next({ dev });
 const handle = app.getRequestHandler();
 const client = require('./discordbot/discord');
 const { connectDB } = require('./database/database');
+const GuildModel = require('./database/models/guildModel');
 
 app.prepare().then(() => {
   const server = express();
@@ -40,6 +41,7 @@ app.prepare().then(() => {
 
   server.all('*', (req, res) => {
     req.discord = client;
+    req.GuildModel = GuildModel;
     return handle(req, res);
   })
 

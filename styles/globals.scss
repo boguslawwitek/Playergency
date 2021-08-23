@@ -17,6 +17,10 @@ body {
   color: white;
 }
 
+button {
+  font-family: 'Open Sans', sans-serif;
+}
+
 button:focus {
   outline: none;
   border: 1px solid rgba(255, 255, 255, 0.5);

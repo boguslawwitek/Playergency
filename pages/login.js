@@ -5,18 +5,31 @@ import { config, dom } from "@fortawesome/fontawesome-svg-core";
 config.autoAddCss = false;
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import styles from '../styles/Discord.module.scss';
+import styles from '../styles/Login.module.scss';
 import Nav from '../components/Nav';
 import Footer from '../components/Footer';
 import CookiesBanner from '../components/CookiesBanner';
-import data from '../config.json';
+import configJSON from '../config.json';
+import useSwr from 'swr';
+import { useRouter } from 'next/router';
 
-const umamiAnalyticsID = data.umamiAnalyticsID;
-const umamiAnalyticsSrc = data.umamiAnalyticsSrc;
+const umamiAnalyticsID = configJSON.umamiAnalyticsID;
+const umamiAnalyticsSrc = configJSON.umamiAnalyticsSrc;
+
+const fetcher = (url) => fetch(url).then((res) => res.json());
 
 const Discord = () => {
   const { t } = useTranslation('common');
+  const router = useRouter();
   const [innerWidth, setInnerWidth] = useState(0);
+  const { data, error } = useSwr('/api/getLoginBg', fetcher);
+  const { data: userData, error: userError } = useSwr('/api/checkIfLogin', fetcher);
+  if(!userError && userData && userData.login) router.push('/dashboard');
+  const loginUrl = `https://discord.com/api/oauth2/authorize?client_id=${configJSON.discordClientId}&redirect_uri=${configJSON.OAuth2RedirectURI}&response_type=code&scope=${configJSON.OAuth2Scopes.join(' ')}`;
+
+  function redirectToDiscordLogin() {
+    window.location = loginUrl;
+  }
 
   useEffect(() => {
     setInnerWidth(prevState => prevState = window.innerWidth);
@@ -35,35 +48,20 @@ const Discord = () => {
   return (
     <>
       <Head>
-        <title>Playergency | Discord</title>
+        <title>Playergency | Panel Gracza</title>
         <link rel="icon" href="/images/favicon.ico" />
         <style>{dom.css()}</style>
         {umamiAnalyticsID && umamiAnalyticsSrc ? 
         <script async defer data-website-id={umamiAnalyticsID} src={umamiAnalyticsSrc}>
         </script> : null}
-
-        {/* <!-- Primary Meta Tags --> */}
-        <meta name="title" content="Playergency - Discord" />
-        <meta name="description" content={t('meta-desc-discord')} />
-        {/* <!-- Open Graph / Facebook --> */}
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://playergency.com/discord" />
-        <meta property="og:title" content="Playergency | Discord" />
-        <meta property="og:description" content={t('meta-desc-discord')} />
-        {/* <!-- Twitter --> */}
-        <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content="https://playergency.com/discord" />
-        <meta property="twitter:title" content="Playergency | Discord" />
-        <meta property="twitter:description" content={t('meta-desc-discord')} />
       </Head>
       <Nav innerWidth={innerWidth} />
-      <main className={styles.main}>
-        <div className={styles.box}>
-            <img className={styles.logo} src="/images/logo.png" alt="" />
-            <h1 className={styles.h1}>Playergency</h1>
-            <p className={styles.p}>{t('discord-p')}</p>
-            <a href="https://discord.gg/85cV6Et" className={styles.link}><FontAwesomeIcon className={styles['discord-icon']} icon={['fab', 'discord']} />{t('discord-join')}</a>
-        </div>
+      <main style={data && data.hasOwnProperty('loginBgUrl') && data.loginBgUrl ? {backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("${data.loginBgUrl}")`} : null} className={styles.main}>
+            <div className={styles.authBox}>
+                <h1>{t('login')}</h1>
+                <p>{t('login-p')}</p>
+                <button onClick={redirectToDiscordLogin} className={styles.loginBtn}>{t('login-btn')}</button>
+            </div>
       </main>
       <Footer />
       <CookiesBanner />

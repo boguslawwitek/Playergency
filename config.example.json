@@ -4,6 +4,8 @@
     "sessionSecret": "foo",
     "discordBotToken": "",
     "discordGuildID": "",
+    "discordClientId": "",
+	"discordClientSecret": "",
     "umamiAnalyticsID": "",
     "umamiAnalyticsSrc": ""
 }

@@ -1,0 +1,69 @@
+.main {
+    min-height: calc(100vh - 80px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: no-repeat center center fixed;
+    background-size: cover;
+}
+
+.authBox {
+    color: #72767d;
+    background-color: #36393f;
+    width: 550px;
+    padding: 50px;
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    margin: 0 auto;
+}
+
+.authBox h1 {
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 32px;
+    margin-bottom: 7px;
+}
+
+.authBox p {
+    font-size: 18px;
+    margin-bottom: 25px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.authBox .loginBtn {
+    color: #fff;
+    background-color: rgb(88, 101, 242);
+    line-height: 44px;
+    height: 44px;
+    font-size: 17px;
+    font-weight: 600;
+    border: none;
+    padding: 2px 16px;
+    border-radius: 3px;
+    margin-top: 20px;
+    cursor: pointer;
+    text-decoration: none;
+    display: block;
+
+    &:hover {
+        background-color: rgb(71, 82, 196);
+    }
+}
+
+@media (max-width: 800px) {
+
+    .authBox {
+        width: 85%;
+    }
+
+    .main {
+        background: no-repeat center center;
+    }
+
+}

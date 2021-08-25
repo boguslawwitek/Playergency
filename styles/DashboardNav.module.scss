@@ -1,0 +1,151 @@
+.container{
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 30px;
+}
+
+.link {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 5px 0;
+    margin: 3px 0;
+
+    &:first-child {
+        padding-top: 0;
+        margin-top: 0;
+    }
+}
+
+.ul .link {
+    padding: 10px;
+    border-radius: 8px;
+
+    &:hover {
+        background-color: rgb(40, 40, 40);
+    }
+}
+
+.active {
+    background-color: rgb(40, 40, 40);
+    cursor: unset;
+    position: relative;
+
+    &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        margin-right: 5px;
+        height: 45%;
+        width: 3px;
+        border-radius: 33%;
+        background-color: rgb(247, 27, 27);
+    }
+}
+
+.avatar {
+    border-radius: 50%;
+    width: 86px;
+    height: 86px;
+}
+
+.user {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-top: 80px;
+}
+
+.logoutBtn {
+    display: block;
+    border: none;
+    background-color: transparent;
+    color: white;
+    padding: 8px 15px;
+    text-align: center;
+    font-weight: 700;
+    border-radius: 8px;
+    border: 2px solid rgb(247, 27, 27);
+    font-size: 15px;
+    cursor: pointer;
+    transition: background-color .2s;
+
+    &:hover {
+        background-color: rgb(247, 27, 27);
+    }
+}
+
+.profile {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 10px 50px 10px 8px;
+    border-radius: 20px;
+
+    &:hover {
+        background-color: rgb(40, 40, 40);
+    }
+}
+
+.profile .tag, .profile .your-profile {
+    margin-left: 15px;
+}   
+
+.profile .tag {
+   font-weight: 700;
+   font-size: 17px;
+}
+
+.profile .your-profile {
+    font-size: 13px;
+}
+
+.content-container {
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.content-container nav {
+    width: 300px;
+    margin-right: 10px;
+}
+
+.content {
+    margin-top: 10px;
+    width: 100%;
+}
+
+.ul, .second-ul {
+    list-style-type: none;
+    font-size: 18px;
+}
+
+.icons {
+    margin-right: 10px;
+}
+
+.second-ul .link {
+    margin-left: 32px;
+}
+
+.adminBtn {
+    border: none;
+    background-color: transparent;
+    color: white;
+    cursor: pointer;
+    font-size: 18px;
+    display: block;
+    width: 100%;
+    text-align: left;
+    color: cyan;
+
+    &:focus {
+        outline: none;
+        border: none;
+    }
+}

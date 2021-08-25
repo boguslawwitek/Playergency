@@ -12,6 +12,7 @@ import data from '../config.json';
 import useSwr from 'swr';
 import { useRouter } from 'next/router';
 import styles from '../styles/Dashboard.module.scss';
+import DashboardNav from '../components/Dashboard/DashboardNav';
 
 const umamiAnalyticsID = data.umamiAnalyticsID;
 const umamiAnalyticsSrc = data.umamiAnalyticsSrc;
@@ -25,10 +26,6 @@ const Discord = () => {
   const { data, error } = useSwr('/api/getLoginBg', fetcher);
   const { data: userData, error: userError } = useSwr('/api/checkIfLogin', fetcher);
   if(!userError && userData && !userData.login) router.push('/login');
-
-  function handleLogout() {
-    window.location = ('/api/logout');
-  }
 
   useEffect(() => {
     setInnerWidth(prevState => prevState = window.innerWidth);
@@ -57,11 +54,9 @@ const Discord = () => {
       <Nav innerWidth={innerWidth} />
       <main className={styles.main}>
         {userData && userData.hasOwnProperty('user') && userData.user ? (<>
-          <div className={styles.user}>
-            <img src={userData.user.avatar} alt="" />
-            <p>{userData.user.tag}</p>
-          </div>
-          <button onClick={handleLogout}>Wyloguj</button>
+          <DashboardNav userData={userData}>
+            <p>{userData.user.guildMember ? <p>true</p> : <p>false</p>}</p>
+          </DashboardNav>
         </>
         ) : null}
       </main>
